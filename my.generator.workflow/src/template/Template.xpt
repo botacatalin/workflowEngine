@@ -1,0 +1,8 @@
+«IMPORT workflow»
+«DEFINE recipe FOR Workflow»
+«FILE name + ".sh"»
+
+#!/bin/bash
+
+«ENDFILE»
+«ENDDEFINE»

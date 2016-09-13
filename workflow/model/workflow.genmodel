@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/workflow/src" modelPluginID="workflow" modelName="Workflow"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>workflow.ecore</foreignModel>
+  <genPackages prefix="Workflow" disposableProviderFactory="true" ecorePackage="workflow.ecore#/">
+    <genClasses ecoreClass="workflow.ecore#//Workflow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Workflow/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Workflow/recipe"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//Recipe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Recipe/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Recipe/command"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Recipe/lang"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//Command">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Command/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Command/no_of_exec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Command/return_status"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//BaseCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//BaseCommand/program"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//BaseCommand/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Parameter/option"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Parameter/data"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
