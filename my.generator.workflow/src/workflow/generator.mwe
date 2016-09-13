@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <workflow>
-	<property name="model" value="my.generator.workflow/src/Model.xmi" />
+	<property name="model" value="my.generator.workflow/src/Workflow.xmi" />
 	<property name="src-gen" value="src-gen" />
 
 	<!-- set up EMF for standalone execution -->
@@ -22,13 +22,13 @@
 			<directory value="${src-gen}"/>
 	</component>
 
-	<!-- check model -->
+	<!-- check model 
 	<component class="org.eclipse.xtend.check.CheckComponent">
 		<metaModel idRef="mm_emf"/>
 		<checkFile value="metamodel::Checks" />
 		<emfAllChildrenSlot value="model" />
 	</component>
-
+-->
 	<!--  generate code -->
 	<component class="org.eclipse.xpand2.Generator">
 		<metaModel idRef="mm_emf"/>

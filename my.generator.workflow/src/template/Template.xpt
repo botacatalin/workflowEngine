@@ -1,8 +1,18 @@
 «IMPORT workflow»
-«DEFINE recipe FOR Workflow»
+
+«DEFINE main FOR Workflow»
+«EXPAND Command FOREACH recipes»
+«ENDDEFINE»
+
+«DEFINE Command FOR Recipe»
 «FILE name + ".sh"»
-
 #!/bin/bash
-
+# Generated into: «lang»
+	«EXPAND cmd FOREACH this.commands»
 «ENDFILE»
+«ENDDEFINE»
+
+
+«DEFINE cmd FOR Command»
+	«this.program» «FOREACH this.parameters AS e» «e.data» «ENDFOREACH»
 «ENDDEFINE»

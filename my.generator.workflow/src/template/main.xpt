@@ -1,0 +1,11 @@
+«IMPORT workflow»
+
+«EXTENSION template::GeneratorExtensions»
+
+
+
+«DEFINE form FOR Recipe»
+«FILE name + ".sh"»
+	@#$@#$@#$
+«ENDFILE»
+«ENDDEFINE»

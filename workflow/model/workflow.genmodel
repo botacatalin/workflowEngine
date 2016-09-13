@@ -7,11 +7,11 @@
   <genPackages prefix="Workflow" disposableProviderFactory="true" ecorePackage="workflow.ecore#/">
     <genClasses ecoreClass="workflow.ecore#//Workflow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Workflow/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Workflow/recipe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Workflow/recipes"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Recipe/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Recipe/command"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Recipe/commands"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Recipe/lang"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Command">
@@ -21,7 +21,7 @@
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//BaseCommand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//BaseCommand/program"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//BaseCommand/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//BaseCommand/parameters"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Parameter/option"/>
