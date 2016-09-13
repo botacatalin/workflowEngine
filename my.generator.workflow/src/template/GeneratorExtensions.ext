@@ -1,0 +1,2 @@
+String timestamp():
+	JAVA utils.TemplateUtils.timestamp();
