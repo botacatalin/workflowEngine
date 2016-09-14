@@ -1,16 +1,20 @@
 #!/bin/bash
-# Generated 2016-09-14_18:53:30
+# Generated 2016-09-14_22:34:28
 
 
-	# Program 1
-	prg1.exe  -o DATA 
+	# 
+	mkdir   NEWDIR 
 	
-	# IFE_CMD_DESC
-	if [ my_condition ]
+	# ### generate T1.nii.gz from DICOM
+	if [ ! -f $PRD/data/T1/T1.nii.gz ]
 	then
-		prg1.exe 
+		echo  
 	else
 		
 	if
+
+	# 
+	echo    "generating T1.nii.gz from DICOM" 
+	
 
 

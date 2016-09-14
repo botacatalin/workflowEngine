@@ -4,24 +4,30 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:workflow="http://www.example.org/workflow"
-    xsi:schemaLocation="http://www.example.org/workflow template/workflow.ecore">
+    xsi:schemaLocation="http://www.example.org/workflow metamodel/workflow.ecore">
   <recipes name="R1">
     <commands
-        description="SIMPLE_CMD_DESC">
+        description="creaza director">
       <programs
-          name_exec="prg1.exe"
-          description="Program 1">
+          name_exec="mkdir">
         <parameters
-            option="-o"
-            data="DATA"/>
+            data="NEWDIR"/>
       </programs>
     </commands>
     <commands
         xsi:type="workflow:IfThenElseCommand"
-        description="IFE_CMD_DESC">
+        description="### generate T1.nii.gz from DICOM">
       <condition
-          expression="my_condition"
-          true_branch="//@recipes.0/@commands.0/@programs.0"/>
+          expression="! -f $PRD/data/T1/T1.nii.gz"
+          true_branch="//@recipes.0/@commands.2/@programs.0"/>
+    </commands>
+    <commands
+        description="ggggg">
+      <programs
+          name_exec="echo ">
+        <parameters
+            data="&quot;generating T1.nii.gz from DICOM&quot;"/>
+      </programs>
     </commands>
   </recipes>
 </workflow:Workflow>
