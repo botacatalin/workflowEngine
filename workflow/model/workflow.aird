@@ -5,9 +5,6 @@
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>metamodel.ecore</semanticResources>
   <semanticResources>Workflow.xmi</semanticResources>
-  <semanticResources>Workflow2.xmi</semanticResources>
-  <semanticResources>Workflow3.xmi</semanticResources>
-  <semanticResources>Workflow4.xmi</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_w6m5oHmfEeaSXNMIh9J7Lg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_w7JFIHmfEeaSXNMIh9J7Lg" name="workflow">
