@@ -3,31 +3,26 @@
 «DEFINE main FOR Workflow»
 «EXPAND Workspace FOREACH recipes»
 «ENDDEFINE»
-
 «DEFINE Workspace FOR Recipe»
-
 «FILE name + ".sh"-»
 #!/bin/bash
 # Generated «timestamp()»
 
 «EXPAND cmd FOREACH this.commands»
 
-
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE cmd FOR Statement»
-	
-«ENDDEFINE»
-
-«DEFINE cmd FOR Condition-»
+«DEFINE cmd FOR IfThenElseCommand-»
 	# «this.description»
 	if [ «this.expression» ]
 	then
-		«EXPAND cmd FOR this.then_branch»
+		«IF this.true_branch.programs.typeSelect(Type)»
+		«this.true_branch.programs.name_exec» 
+		«ENDIF»
 		
 	else
-		«EXPAND cmd FOR this.else_branch»
+		«this.false_branch.programs.name_exec»
 	if
 «ENDDEFINE»
 

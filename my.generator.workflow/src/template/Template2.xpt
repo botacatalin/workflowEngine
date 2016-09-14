@@ -1,0 +1,52 @@
+«IMPORT workflow»
+«EXTENSION template::GeneratorExtensions»
+«DEFINE main FOR Workflow»
+«EXPAND Workspace FOREACH recipes»
+«ENDDEFINE»
+«DEFINE Workspace FOR Recipe»
+«FILE name + ".sh"-»
+#!/bin/bash
+# Generated «timestamp()»
+
+
+«EXPAND cmd FOREACH this.commands»
+
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE cmd FOR IfThenElseCommand-»
+	# «this.description»
+	if [ «this.condition.expression» ]
+	then
+		«IF this.condition.true_branch_ifthenelsecommand.condition.expression.length > 0»
+			if [ «this.condition.true_branch_ifthenelsecommand.condition.expression» ]
+			then
+				«this.condition.true_branch_ifthenelsecommand.programs.name_exec»
+			else
+				«this.condition.false__branch_ifthenelsecommand.programs.name_exec»
+			fi
+		«ELSE»	
+			«this.condition.true_branch.name_exec» 
+		«ENDIF»
+		
+	else
+		«IF this.condition.false__branch_ifthenelsecommand.condition.expression.length > 0»
+			if [ «this.condition.false__branch_ifthenelsecommand.condition.expression» ]
+			then
+				«this.condition.true_branch_ifthenelsecommand.programs.name_exec»
+			else
+				«this.condition.false__branch_ifthenelsecommand.programs.name_exec»
+			fi
+		«ELSE»	
+			«this.condition.false_branch.name_exec»
+		«ENDIF»
+		
+	fi
+«ENDDEFINE»
+
+«DEFINE cmd FOR SimpleCommand»
+	«FOREACH this.programs AS p-» 
+	# «p.description»
+	«p.name_exec» «FOREACH p.parameters AS par-» «par.option» «par.data» «ENDFOREACH»
+	«ENDFOREACH»
+«ENDDEFINE»

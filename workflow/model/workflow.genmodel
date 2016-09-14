@@ -19,8 +19,8 @@
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Condition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Condition/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/then"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/else"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/then_branch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/else_branch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Condition/expression"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Program">
@@ -31,13 +31,13 @@
     <genClasses ecoreClass="workflow.ecore#//Statement"/>
     <genClasses ecoreClass="workflow.ecore#//SimpleCommand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//SimpleCommand/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//SimpleCommand/program"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//SimpleCommand/programs"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//InputParameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//InputParameter/outputparameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//InputParameter/link_to_outputparameter"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//OutputParameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//OutputParameter/inputparameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//OutputParameter/link_to_inputparameter"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -20,10 +20,10 @@
       <details key="name" value="IfThenElseCommand"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="then" lowerBound="1" eType="#//Statement"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="else" lowerBound="1" eType="#//Statement"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then_branch" lowerBound="1"
+        eType="#//Statement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else_branch" lowerBound="1"
+        eType="#//Statement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Program">
@@ -35,13 +35,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleCommand" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="program" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"
         eType="#//Program" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputParameter" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputparameter" eType="#//OutputParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link_to_outputparameter"
+        eType="#//OutputParameter"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputParameter" eSuperTypes="#//Parameter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inputparameter" eType="#//InputParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link_to_inputparameter"
+        eType="#//InputParameter"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -1,20 +1,24 @@
 #!/bin/bash
-# Generated 2016-09-14_22:34:28
-
+# Generated 2016-09-14_23:37:26
 
 	# 
-	mkdir   NEWDIR 
-	
-	# ### generate T1.nii.gz from DICOM
-	if [ ! -f $PRD/data/T1/T1.nii.gz ]
+	if [  ]
 	then
-		echo  
-	else
 		
+	
+
+		
+	else
+	# 
+	if [ eeeee ]
+	then
+		
+		
+	else
+	
 	if
 
-	# 
-	echo    "generating T1.nii.gz from DICOM" 
-	
+	if
+
 
 
