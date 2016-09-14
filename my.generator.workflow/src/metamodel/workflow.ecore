@@ -9,24 +9,36 @@
   <eClassifiers xsi:type="ecore:EClass" name="Recipe">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
-        eType="#//Command" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="bash"/>
+        eType="#//SimpleCommand" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="#//BaseCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no_of_exec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="programs" upperBound="-1"
+        eType="#//Program" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no_of_runs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="return_status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BaseCommand">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="program" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="option" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="true_branch" lowerBound="1"
+        eType="#//Program"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="false_branch" eType="#//Program"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfThenElseCommand" eSuperTypes="#//SimpleCommand">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="IfThenElseCommand"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name_exec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

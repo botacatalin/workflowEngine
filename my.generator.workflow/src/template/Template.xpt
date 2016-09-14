@@ -1,21 +1,26 @@
 «IMPORT workflow»
 «EXTENSION template::GeneratorExtensions»
-
-
 «DEFINE main FOR Workflow»
-«EXPAND Command FOREACH recipes»
+«EXPAND Workspace FOREACH recipes»
 «ENDDEFINE»
-
-«DEFINE Command FOR Recipe»
-«FILE name + ".sh"»
+«DEFINE Workspace FOR Recipe»
+«FILE name + ".sh"-»
 #!/bin/bash
 # Generated «timestamp()»
 
-	«EXPAND cmd FOREACH this.commands»
+«FOREACH this.commands AS e-»
+	«IF !this.commands.typeSelect(SimpleCommand).isEmpty»
+		«FOREACH e.programs AS p-»  «p.description»
+			 «p.name_exec» «FOREACH p.parameters AS par-» «par.option» «par.data» «ENDFOREACH»
+		«ENDFOREACH»
+	«ELSEIF !this.commands.typeSelect(IfThenElseCommand).isEmpty»
+	###
+	«ENDIF»
+		«ENDFOREACH-»
+	
 «ENDFILE»
 «ENDDEFINE»
 
-
-«DEFINE cmd FOR Command»
-	«this.program» «FOREACH this.parameters AS e» «e.data» «ENDFOREACH»
+«DEFINE IfThenElseCmd FOR IfThenElseCommand»
+	«this.condition»
 «ENDDEFINE»

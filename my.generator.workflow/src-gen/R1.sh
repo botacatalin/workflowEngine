@@ -1,8 +1,11 @@
-
 #!/bin/bash
-# Generated 2016-09-14_01:20:52
+# Generated 2016-09-14_17:09:36
+
+
 	
-	mkdir  NEWDIR 
-
-	c2  d2 
-
+	dsds
+  
+			 p1 
+		
+	
+	

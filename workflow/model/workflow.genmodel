@@ -12,20 +12,29 @@
     <genClasses ecoreClass="workflow.ecore#//Recipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Recipe/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Recipe/commands"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Recipe/lang"/>
     </genClasses>
-    <genClasses ecoreClass="workflow.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Command/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Command/no_of_exec"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Command/return_status"/>
-    </genClasses>
-    <genClasses ecoreClass="workflow.ecore#//BaseCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//BaseCommand/program"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//BaseCommand/parameters"/>
+    <genClasses ecoreClass="workflow.ecore#//SimpleCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//SimpleCommand/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//SimpleCommand/programs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//SimpleCommand/no_of_runs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Program/parameters"/>
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Parameter/option"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Parameter/data"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Condition/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/true_branch"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//Condition/false_branch"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//IfThenElseCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//IfThenElseCommand/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Program/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Program/name_exec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Program/description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
