@@ -4,14 +4,23 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:workflow="http://www.example.org/workflow"
-    xsi:schemaLocation="http://www.example.org/workflow metamodel/workflow.ecore"
-    name="W1">
+    xsi:schemaLocation="http://www.example.org/workflow template/workflow.ecore">
   <recipes name="R1">
     <commands
-        xsi:type="workflow:IfThenElseCommand">
+        description="SIMPLE_CMD_DESC">
       <programs
-          name_exec="p1"/>
+          name_exec="prg1.exe"
+          description="Program 1">
+        <parameters
+            option="-o"
+            data="DATA"/>
+      </programs>
+    </commands>
+    <commands
+        xsi:type="workflow:IfThenElseCommand"
+        description="IFE_CMD_DESC">
       <condition
+          expression="my_condition"
           true_branch="//@recipes.0/@commands.0/@programs.0"/>
     </commands>
   </recipes>

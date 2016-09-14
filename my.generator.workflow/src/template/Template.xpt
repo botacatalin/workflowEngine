@@ -8,19 +8,24 @@
 #!/bin/bash
 # Generated «timestamp()»
 
-«FOREACH this.commands AS e-»
-	«IF !this.commands.typeSelect(SimpleCommand).isEmpty»
-		«FOREACH e.programs AS p-»  «p.description»
-			 «p.name_exec» «FOREACH p.parameters AS par-» «par.option» «par.data» «ENDFOREACH»
-		«ENDFOREACH»
-	«ELSEIF !this.commands.typeSelect(IfThenElseCommand).isEmpty»
-	###
-	«ENDIF»
-		«ENDFOREACH-»
-	
+«EXPAND cmd FOREACH this.commands»
+
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE IfThenElseCmd FOR IfThenElseCommand»
-	«this.condition»
+«DEFINE cmd FOR IfThenElseCommand-»
+	# «this.description»
+	if [ «this.condition.expression» ]
+	then
+		«this.condition.true_branch.name_exec» 
+	else
+		«this.condition.false_branch.name_exec»
+	if
+«ENDDEFINE»
+
+«DEFINE cmd FOR SimpleCommand»
+	«FOREACH this.programs AS p-» 
+	# «p.description»
+	«p.name_exec» «FOREACH p.parameters AS par-» «par.option» «par.data» «ENDFOREACH»
+	«ENDFOREACH»
 «ENDDEFINE»
