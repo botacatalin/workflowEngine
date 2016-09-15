@@ -1,2 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" name="workflow" version="11.0.0.201601261200"/>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="workflow" version="11.0.0.201601261200">
+  <ownedViewpoints name="Workflow" label="Workflow Engine" modelFileExtension="workflow">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Workflow Engine Diagram" label="Workflow Engine Diagram" titleExpression="[' Workflow Diagram' /]" domainClass="workflow.Workflow" enablePopupBars="true">
+      <metamodel href="../../workflow/model/workflow.ecore#/"/>
+      <diagramInitialisation>
+        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+          <subModelOperations xsi:type="tool:If" conditionExpression="[self.recipes->size() = 0/]">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Recipe" referenceName="recipes">
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Recipe'/]"/>
+            </subModelOperations>
+          </subModelOperations>
+        </firstModelOperations>
+      </diagramInitialisation>
+      <defaultLayer name="Default">
+        <containerMappings name="Recipe" domainClass="workflow.Recipe">
+          <subNodeMappings name="Condition" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="workflow.Condition">
+            <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:expression" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="SimpleCommand" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.SimpleCommand">
+            <subNodeMappings name="Program" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.Program">
+              <style xsi:type="style:EllipseNodeDescription" labelExpression="feature:name_exec" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="feature:description">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Workflow">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Recipe" containerMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Recipe" referenceName="recipes">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="feature:name"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="SimpleCommand" containerMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="commands"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Program" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']/@subNodeMappings[name='Program']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Program" referenceName="programs"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Condition" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subNodeMappings[name='Condition']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Condition" referenceName="commands"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Open EEF Wizard" mappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subNodeMappings[name='Condition']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

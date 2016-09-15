@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?eclipse version="3.0"?><!--
+--><plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated workflow -->
+      <factory
+            uri="http://www.example.org/workflow"
+            class="workflow.provider.WorkflowItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+<extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory class="workflow.providers.WorkflowEEFAdapterFactory" supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider" uri="http://www.example.org/workflow"/>
+   </extension><extension point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider providerClass="workflow.providers.WorkflowPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension><extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor contributorId="workflow.properties" labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+         <propertyCategory category="default">
+         </propertyCategory>
+         <propertyCategory category="extended">
+         </propertyCategory>
+         <propertyCategory category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension><extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs contributorId="workflow.properties">
+         <propertyTab category="default" id="Base" label="Base">
+         </propertyTab>
+
+      </propertyTabs>
+   </extension><extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections contributorId="workflow.properties">
+         <propertySection class="workflow.parts.forms.WorkflowPropertiesEditionPartForm" filter="workflow.providers.WorkflowPropertiesEditionProvider$EditionFilter" id="workflow.section.Workflow" tab="Base">
+         </propertySection>
+         <propertySection class="workflow.parts.forms.RecipePropertiesEditionPartForm" filter="workflow.providers.RecipePropertiesEditionProvider$EditionFilter" id="workflow.section.Recipe" tab="Base">
+         </propertySection>
+         <propertySection class="workflow.parts.forms.ConditionPropertiesEditionPartForm" filter="workflow.providers.ConditionPropertiesEditionProvider$EditionFilter" id="workflow.section.Condition" tab="Base">
+         </propertySection>
+         <propertySection class="workflow.parts.forms.ProgramPropertiesEditionPartForm" filter="workflow.providers.ProgramPropertiesEditionProvider$EditionFilter" id="workflow.section.Program" tab="Base">
+         </propertySection>
+         <propertySection class="workflow.parts.forms.SimpleCommandPropertiesEditionPartForm" filter="workflow.providers.SimpleCommandPropertiesEditionProvider$EditionFilter" id="workflow.section.SimpleCommand" tab="Base">
+         </propertySection>
+         <propertySection class="workflow.parts.forms.InputParameterPropertiesEditionPartForm" filter="workflow.providers.InputParameterPropertiesEditionProvider$EditionFilter" id="workflow.section.InputParameter" tab="Base">
+         </propertySection>
+         <propertySection class="workflow.parts.forms.OutputParameterPropertiesEditionPartForm" filter="workflow.providers.OutputParameterPropertiesEditionProvider$EditionFilter" id="workflow.section.OutputParameter" tab="Base">
+         </propertySection>
+      </propertySections>
+   </extension></plugin>

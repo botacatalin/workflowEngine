@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_xYNCYHtREeaWFoO-aqnJCg" documentation="Edition Context for workflow GenPackage">
+    <categories xmi:id="_xYNCYXtREeaWFoO-aqnJCg" name="workflow">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCYntREeaWFoO-aqnJCg" name="Workflow" views="_xYNCfHtREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCY3tREeaWFoO-aqnJCg" name="name" views="_xYNCfntREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Workflow/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCZHtREeaWFoO-aqnJCg" name="recipes" views="_xYNCf3tREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/workflow/model/workflow.ecore#//Workflow/recipes"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//Workflow"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCZXtREeaWFoO-aqnJCg" name="Recipe" views="_xYNCgHtREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCZntREeaWFoO-aqnJCg" name="name" views="_xYNCgntREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Recipe/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCZ3tREeaWFoO-aqnJCg" name="commands" views="_xYNCg3tREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/workflow/model/workflow.ecore#//Recipe/commands"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//Recipe"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCaHtREeaWFoO-aqnJCg" name="Condition" views="_xYNChHtREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCaXtREeaWFoO-aqnJCg" name="description" views="_xYNChntREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Condition/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCantREeaWFoO-aqnJCg" name="expression" views="_xYNCh3tREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Condition/expression"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//Condition"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCa3tREeaWFoO-aqnJCg" name="Program" views="_xYNCiHtREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCbHtREeaWFoO-aqnJCg" name="parameters" views="_xYNCintREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/workflow/model/workflow.ecore#//Program/parameters"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCbXtREeaWFoO-aqnJCg" name="name_exec" views="_xYNCi3tREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Program/name_exec"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCbntREeaWFoO-aqnJCg" name="description" views="_xYNCjHtREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Program/description"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//Program"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCb3tREeaWFoO-aqnJCg" name="SimpleCommand" views="_xYNCjXtREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCcHtREeaWFoO-aqnJCg" name="description" views="_xYNCj3tREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//SimpleCommand/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCcXtREeaWFoO-aqnJCg" name="programs" views="_xYNCkHtREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/workflow/model/workflow.ecore#//SimpleCommand/programs"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//SimpleCommand"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCcntREeaWFoO-aqnJCg" name="InputParameter" views="_xYNCkXtREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCc3tREeaWFoO-aqnJCg" name="option" views="_xYNCk3tREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Parameter/option"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCdHtREeaWFoO-aqnJCg" name="data" views="_xYNClHtREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Parameter/data"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCdXtREeaWFoO-aqnJCg" name="link_to_outputparameter" views="_xYNClXtREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/workflow/model/workflow.ecore#//InputParameter/link_to_outputparameter"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//InputParameter"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_xYNCdntREeaWFoO-aqnJCg" name="OutputParameter" views="_xYNClntREeaWFoO-aqnJCg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCd3tREeaWFoO-aqnJCg" name="option" views="_xYNCmHtREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Parameter/option"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCeHtREeaWFoO-aqnJCg" name="data" views="_xYNCmXtREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/workflow/model/workflow.ecore#//Parameter/data"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_xYNCeXtREeaWFoO-aqnJCg" name="link_to_inputparameter" views="_xYNCmntREeaWFoO-aqnJCg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/workflow/model/workflow.ecore#//OutputParameter/link_to_inputparameter"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/workflow/model/workflow.ecore#//OutputParameter"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/workflow/model/workflow.genmodel#//workflow"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_xYNCentREeaWFoO-aqnJCg" documentation="Views repository for workflow GenPackage" name="workflow">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_xYNCe3tREeaWFoO-aqnJCg" name="workflow">
+      <views xmi:id="_xYNCfHtREeaWFoO-aqnJCg" name="Workflow">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNCfXtREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCfntREeaWFoO-aqnJCg" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCf3tREeaWFoO-aqnJCg" name="recipes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_xYNCgHtREeaWFoO-aqnJCg" name="Recipe">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNCgXtREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCgntREeaWFoO-aqnJCg" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCg3tREeaWFoO-aqnJCg" name="commands">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_xYNChHtREeaWFoO-aqnJCg" name="Condition">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNChXtREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNChntREeaWFoO-aqnJCg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCh3tREeaWFoO-aqnJCg" name="expression">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_xYNCiHtREeaWFoO-aqnJCg" name="Program">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNCiXtREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCintREeaWFoO-aqnJCg" name="parameters">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCi3tREeaWFoO-aqnJCg" name="name_exec">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCjHtREeaWFoO-aqnJCg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_xYNCjXtREeaWFoO-aqnJCg" name="SimpleCommand">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNCjntREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCj3tREeaWFoO-aqnJCg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCkHtREeaWFoO-aqnJCg" name="programs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_xYNCkXtREeaWFoO-aqnJCg" name="InputParameter">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNCkntREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCk3tREeaWFoO-aqnJCg" name="option">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNClHtREeaWFoO-aqnJCg" name="data">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNClXtREeaWFoO-aqnJCg" name="link_to_outputparameter">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_xYNClntREeaWFoO-aqnJCg" name="OutputParameter">
+        <elements xsi:type="eef-views:Container" xmi:id="_xYNCl3tREeaWFoO-aqnJCg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCmHtREeaWFoO-aqnJCg" name="option">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCmXtREeaWFoO-aqnJCg" name="data">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xYNCmntREeaWFoO-aqnJCg" name="link_to_inputparameter">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>
