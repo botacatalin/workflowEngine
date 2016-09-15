@@ -14,7 +14,7 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <containerMappings name="Recipe" domainClass="workflow.Recipe">
-          <subNodeMappings name="Condition" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="workflow.Condition">
+          <subNodeMappings name="Condition" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.Condition">
             <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:expression" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -23,14 +23,33 @@
           </subNodeMappings>
           <subContainerMappings name="SimpleCommand" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.SimpleCommand">
             <subNodeMappings name="Program" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.Program">
-              <style xsi:type="style:EllipseNodeDescription" labelExpression="feature:name_exec" labelPosition="node" resizeKind="NSEW">
+              <borderedNodeMappings name="Input" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.InputParameter">
+                <style xsi:type="style:SquareDescription" labelExpression="" iconPath="/my.generator.workflow.design/resources/inputParameterIcon.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                </style>
+              </borderedNodeMappings>
+              <borderedNodeMappings name="Output" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.OutputParameter">
+                <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelExpression="" iconPath="/my.generator.workflow.design/resources/outputParameter.png" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelFormat>bold</labelFormat>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+                </style>
+              </borderedNodeMappings>
+              <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelExpression="feature:name_exec" iconPath="/my.generator.workflow.design/resources/programIcon.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="feature:description">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash_dot" labelExpression="feature:description" iconPath="/my.generator.workflow.design/resources/simpleCommandIcon.png" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -60,15 +79,10 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="commands"/>
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="commands">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="[' # Command description '/]"/>
+                </subModelOperations>
               </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Program" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']/@subNodeMappings[name='Program']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Program" referenceName="programs"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Condition" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subNodeMappings[name='Condition']">
@@ -78,12 +92,30 @@
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Condition" referenceName="commands"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Open EEF Wizard" mappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subNodeMappings[name='Condition']">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall"/>
-            </initialOperation>
+          <ownedTools xsi:type="tool_1:ToolGroup" name="Program Options">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="Program" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']/@subNodeMappings[name='Program']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Program" referenceName="programs">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name_exec" valueExpression="[' run_command '/]"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:NodeCreationDescription" name="InputParameter" label="In Parameter" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']/@subNodeMappings[name='Program']/@borderedNodeMappings[name='Input']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.InputParameter" referenceName="parameters"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:NodeCreationDescription" name="OutputParameter" label="Out Parameter" nodeMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']/@subNodeMappings[name='Program']/@borderedNodeMappings[name='Output']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.OutputParameter" referenceName="parameters"/>
+              </initialOperation>
+            </tools>
           </ownedTools>
         </toolSections>
       </defaultLayer>

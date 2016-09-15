@@ -13,7 +13,6 @@ Require-Bundle: org.eclipse.core.runtime,
  workflow.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport,
- org.eclipse.emf.eef.runtime.extended;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
