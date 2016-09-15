@@ -3,7 +3,6 @@
   <semanticResources>workflow.ecore</semanticResources>
   <semanticResources>workflow.genmodel</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
-  <semanticResources>metamodel.ecore</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_w6m5oHmfEeaSXNMIh9J7Lg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_w7JFIHmfEeaSXNMIh9J7Lg" name="workflow">
@@ -152,7 +151,7 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_w7JsMnmfEeaSXNMIh9J7Lg"/>
           <edges xmi:type="notation:Edge" xmi:id="_6jW8kHmfEeaSXNMIh9J7Lg" type="4001" element="_6jKvUHmfEeaSXNMIh9J7Lg" source="_xiIzsHmfEeaSXNMIh9J7Lg" target="_2pZBYHmfEeaSXNMIh9J7Lg">
             <children xmi:type="notation:Node" xmi:id="_6jYKsHmfEeaSXNMIh9J7Lg" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6jYKsXmfEeaSXNMIh9J7Lg" x="82" y="-10"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6jYKsXmfEeaSXNMIh9J7Lg" x="30" y="-11"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_6jYKsnmfEeaSXNMIh9J7Lg" type="6002">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6jYKs3mfEeaSXNMIh9J7Lg" x="7" y="116"/>
