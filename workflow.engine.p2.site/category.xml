@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/workflow.engine.ide.feature_1.0.0.qualifier.jar" id="workflow.engine.ide.feature" version="1.0.0.qualifier">
+      <category name="Workflow"/>
+   </feature>
+   <category-def name="Workflow" label="Workflow Engine"/>
+</site>

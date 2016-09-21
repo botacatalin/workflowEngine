@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>workflow.engine.parent</groupId>
+  <artifactId>workflow.engine.parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <!-- Enable tycho -->
+   <properties>
+      <tycho-version>0.25.0</tycho-version>
+   </properties>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-maven-plugin</artifactId>
+            <version>${tycho-version}</version>
+            <extensions>true</extensions>
+         </plugin>
+         
+         <!-- Specify which environments your software should be built for (os/ws/arc -->
+         <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <environments>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+      </plugins>
+   </build>
+  
+  <!-- Repository providing the context of the build -->
+  <repositories>
+  <repository>
+      <id>eclipse-neon</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/releases/neon</url>
+   </repository>
+   </repositories>
+   
+  
+  <modules>
+  	
+  	
+  	
+  	
+  	
+  	<module>../workflow.engine.ide.feature</module>
+
+
+
+
+
+
+
+
+
+
+  	
+  	<module>../workflow.engine.p2.site</module>
+  	
+  	<module>../my.generator.workflow.design.feature</module>
+  	
+  	
+  </modules>
+</project>
+
