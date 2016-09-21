@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>workflow</groupId>
   <artifactId>workflow</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
   <parent>
   	<groupId>workflow.engine.parent</groupId>
   	<artifactId>workflow.engine.parent</artifactId>
   	<version>1.0.0-SNAPSHOT</version>
-  	<relativePath>C:/Users/catalin.bota/workspaceengine/workflow.engine.parent.releng</relativePath>
+  	<relativePath>../workflow.engine.parent.releng</relativePath>
   </parent>
 </project>

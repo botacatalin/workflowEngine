@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="workflow.engine.ide.feature"
-      label="workflow.engine.feature"
+      label="workflow.engine.ide.feature"
       version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
@@ -24,8 +24,19 @@
          id="my.generator.workflow.design.feature"
          version="0.0.0"/>
 
+   <requires>
+      <import plugin="org.eclipse.sdk"/>
+   </requires>
+
    <plugin
          id="my.generator.workflow"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="workflow"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -40,13 +51,6 @@
 
    <plugin
          id="workflow.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="workflow"
          download-size="0"
          install-size="0"
          version="0.0.0"

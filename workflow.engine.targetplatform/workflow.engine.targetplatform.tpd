@@ -1,0 +1,9 @@
+target "Workflow engine target file"
+
+environment linux gtk x86_64
+
+location "http://download.eclipse.org/modeling/m2t/xpand/updates/nightly/" {
+	org.eclipse.xtend.backend
+	org.eclipse.xtend.middleend.xpand
+	org.eclipse.xtend.middleend.xtend
+}
