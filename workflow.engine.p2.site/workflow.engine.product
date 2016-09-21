@@ -11,7 +11,7 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <launcher>
+   <launcher name="Workflow Engine">
       <solaris/>
       <win useIco="false">
          <bmp/>
