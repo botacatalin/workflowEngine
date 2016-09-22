@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import workflow.Condition;
+import workflow.ForEach;
 import workflow.InputParameter;
 import workflow.OutputParameter;
 import workflow.Parameter;
@@ -90,6 +91,13 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * @generated
 	 */
 	private EClass outputParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass forEachEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -319,8 +327,26 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getProgram_Exec_order() {
+		return (EAttribute)programEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStatement() {
 		return statementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStatement_Exec_order() {
+		return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -391,6 +417,42 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getForEach() {
+		return forEachEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForEach_Element() {
+		return (EAttribute)forEachEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getForEach_Statements() {
+		return (EReference)forEachEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getForEach_Sequence() {
+		return (EAttribute)forEachEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkflowFactory getWorkflowFactory() {
 		return (WorkflowFactory)getEFactoryInstance();
 	}
@@ -436,8 +498,10 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		createEReference(programEClass, PROGRAM__PARAMETERS);
 		createEAttribute(programEClass, PROGRAM__NAME_EXEC);
 		createEAttribute(programEClass, PROGRAM__DESCRIPTION);
+		createEAttribute(programEClass, PROGRAM__EXEC_ORDER);
 
 		statementEClass = createEClass(STATEMENT);
+		createEAttribute(statementEClass, STATEMENT__EXEC_ORDER);
 
 		simpleCommandEClass = createEClass(SIMPLE_COMMAND);
 		createEAttribute(simpleCommandEClass, SIMPLE_COMMAND__DESCRIPTION);
@@ -448,6 +512,11 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		outputParameterEClass = createEClass(OUTPUT_PARAMETER);
 		createEReference(outputParameterEClass, OUTPUT_PARAMETER__LINK_TO_INPUTPARAMETER);
+
+		forEachEClass = createEClass(FOR_EACH);
+		createEAttribute(forEachEClass, FOR_EACH__ELEMENT);
+		createEReference(forEachEClass, FOR_EACH__STATEMENTS);
+		createEAttribute(forEachEClass, FOR_EACH__SEQUENCE);
 	}
 
 	/**
@@ -482,6 +551,7 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		simpleCommandEClass.getESuperTypes().add(this.getStatement());
 		inputParameterEClass.getESuperTypes().add(this.getParameter());
 		outputParameterEClass.getESuperTypes().add(this.getParameter());
+		forEachEClass.getESuperTypes().add(this.getStatement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(workflowEClass, Workflow.class, "Workflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -506,8 +576,10 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 		initEReference(getProgram_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_Name_exec(), ecorePackage.getEString(), "name_exec", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_Description(), ecorePackage.getEString(), "description", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgram_Exec_order(), ecorePackage.getEInt(), "exec_order", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStatement_Exec_order(), ecorePackage.getEInt(), "exec_order", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(simpleCommandEClass, SimpleCommand.class, "SimpleCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSimpleCommand_Description(), ecorePackage.getEString(), "description", null, 0, 1, SimpleCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -518,6 +590,11 @@ public class WorkflowPackageImpl extends EPackageImpl implements WorkflowPackage
 
 		initEClass(outputParameterEClass, OutputParameter.class, "OutputParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOutputParameter_Link_to_inputparameter(), this.getInputParameter(), null, "link_to_inputparameter", null, 0, 1, OutputParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(forEachEClass, ForEach.class, "ForEach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getForEach_Element(), ecorePackage.getEString(), "element", null, 0, 1, ForEach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getForEach_Statements(), this.getStatement(), null, "statements", null, 0, -1, ForEach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForEach_Sequence(), ecorePackage.getEString(), "sequence", null, 0, 1, ForEach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -104,6 +104,10 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 				return createOutputParameterAdapter();
 			}
 			@Override
+			public Adapter caseForEach(ForEach object) {
+				return createForEachAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -246,6 +250,20 @@ public class WorkflowAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link workflow.ForEach <em>For Each</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see workflow.ForEach
+	 * @generated
+	 */
+	public Adapter createForEachAdapter() {
 		return null;
 	}
 

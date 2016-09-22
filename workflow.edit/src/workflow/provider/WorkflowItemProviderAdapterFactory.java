@@ -233,6 +233,29 @@ public class WorkflowItemProviderAdapterFactory extends WorkflowAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link workflow.ForEach} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ForEachItemProvider forEachItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link workflow.ForEach}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createForEachAdapter() {
+		if (forEachItemProvider == null) {
+			forEachItemProvider = new ForEachItemProvider(this);
+		}
+
+		return forEachItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,6 +361,7 @@ public class WorkflowItemProviderAdapterFactory extends WorkflowAdapterFactory i
 		if (simpleCommandItemProvider != null) simpleCommandItemProvider.dispose();
 		if (inputParameterItemProvider != null) inputParameterItemProvider.dispose();
 		if (outputParameterItemProvider != null) outputParameterItemProvider.dispose();
+		if (forEachItemProvider != null) forEachItemProvider.dispose();
 	}
 
 }

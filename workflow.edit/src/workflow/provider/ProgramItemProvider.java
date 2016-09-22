@@ -65,6 +65,7 @@ public class ProgramItemProvider
 
 			addName_execPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addExec_orderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +110,28 @@ public class ProgramItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Exec order feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExec_orderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Program_exec_order_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Program_exec_order_feature", "_UI_Program_type"),
+				 WorkflowPackage.Literals.PROGRAM__EXEC_ORDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -183,6 +206,7 @@ public class ProgramItemProvider
 		switch (notification.getFeatureID(Program.class)) {
 			case WorkflowPackage.PROGRAM__NAME_EXEC:
 			case WorkflowPackage.PROGRAM__DESCRIPTION:
+			case WorkflowPackage.PROGRAM__EXEC_ORDER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case WorkflowPackage.PROGRAM__PARAMETERS:

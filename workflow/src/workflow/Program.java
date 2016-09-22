@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link workflow.Program#getParameters <em>Parameters</em>}</li>
  *   <li>{@link workflow.Program#getName_exec <em>Name exec</em>}</li>
  *   <li>{@link workflow.Program#getDescription <em>Description</em>}</li>
+ *   <li>{@link workflow.Program#getExec_order <em>Exec order</em>}</li>
  * </ul>
  *
  * @see workflow.WorkflowPackage#getProgram()
@@ -92,5 +93,31 @@ public interface Program extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Exec order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exec order</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exec order</em>' attribute.
+	 * @see #setExec_order(int)
+	 * @see workflow.WorkflowPackage#getProgram_Exec_order()
+	 * @model
+	 * @generated
+	 */
+	int getExec_order();
+
+	/**
+	 * Sets the value of the '{@link workflow.Program#getExec_order <em>Exec order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Exec order</em>' attribute.
+	 * @see #getExec_order()
+	 * @generated
+	 */
+	void setExec_order(int value);
 
 } // Program

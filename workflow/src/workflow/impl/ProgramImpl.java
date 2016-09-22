@@ -33,6 +33,7 @@ import workflow.WorkflowPackage;
  *   <li>{@link workflow.impl.ProgramImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link workflow.impl.ProgramImpl#getName_exec <em>Name exec</em>}</li>
  *   <li>{@link workflow.impl.ProgramImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link workflow.impl.ProgramImpl#getExec_order <em>Exec order</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +88,26 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExec_order() <em>Exec order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExec_order()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int EXEC_ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getExec_order() <em>Exec order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExec_order()
+	 * @generated
+	 * @ordered
+	 */
+	protected int exec_order = EXEC_ORDER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +187,27 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getExec_order() {
+		return exec_order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExec_order(int newExec_order) {
+		int oldExec_order = exec_order;
+		exec_order = newExec_order;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WorkflowPackage.PROGRAM__EXEC_ORDER, oldExec_order, exec_order));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -189,6 +231,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return getName_exec();
 			case WorkflowPackage.PROGRAM__DESCRIPTION:
 				return getDescription();
+			case WorkflowPackage.PROGRAM__EXEC_ORDER:
+				return getExec_order();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,6 +256,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case WorkflowPackage.PROGRAM__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
+			case WorkflowPackage.PROGRAM__EXEC_ORDER:
+				setExec_order((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -233,6 +280,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			case WorkflowPackage.PROGRAM__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case WorkflowPackage.PROGRAM__EXEC_ORDER:
+				setExec_order(EXEC_ORDER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +301,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 				return NAME_EXEC_EDEFAULT == null ? name_exec != null : !NAME_EXEC_EDEFAULT.equals(name_exec);
 			case WorkflowPackage.PROGRAM__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case WorkflowPackage.PROGRAM__EXEC_ORDER:
+				return exec_order != EXEC_ORDER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -269,6 +321,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 		result.append(name_exec);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", exec_order: ");
+		result.append(exec_order);
 		result.append(')');
 		return result.toString();
 	}

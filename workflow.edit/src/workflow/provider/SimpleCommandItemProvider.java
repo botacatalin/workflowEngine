@@ -124,10 +124,8 @@ public class SimpleCommandItemProvider extends StatementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SimpleCommand)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SimpleCommand_type") :
-			getString("_UI_SimpleCommand_type") + " " + label;
+		SimpleCommand simpleCommand = (SimpleCommand)object;
+		return getString("_UI_SimpleCommand_type") + " " + simpleCommand.getExec_order();
 	}
 	
 

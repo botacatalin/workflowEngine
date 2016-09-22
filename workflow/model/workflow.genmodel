@@ -27,8 +27,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//Program/parameters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Program/name_exec"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Program/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Program/exec_order"/>
     </genClasses>
-    <genClasses ecoreClass="workflow.ecore#//Statement"/>
+    <genClasses ecoreClass="workflow.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//Statement/exec_order"/>
+    </genClasses>
     <genClasses ecoreClass="workflow.ecore#//SimpleCommand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//SimpleCommand/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//SimpleCommand/programs"/>
@@ -38,6 +41,11 @@
     </genClasses>
     <genClasses ecoreClass="workflow.ecore#//OutputParameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference workflow.ecore#//OutputParameter/link_to_inputparameter"/>
+    </genClasses>
+    <genClasses ecoreClass="workflow.ecore#//ForEach">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ForEach/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference workflow.ecore#//ForEach/statements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute workflow.ecore#//ForEach/sequence"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

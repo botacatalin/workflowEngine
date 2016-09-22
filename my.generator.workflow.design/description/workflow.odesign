@@ -28,6 +28,9 @@
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelFormat>bold</labelFormat>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <forbiddenSides>WEST</forbiddenSides>
+                  <forbiddenSides>SOUTH</forbiddenSides>
+                  <forbiddenSides>EAST</forbiddenSides>
                   <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
                 </style>
               </borderedNodeMappings>
@@ -36,10 +39,13 @@
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelFormat>bold</labelFormat>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <forbiddenSides>WEST</forbiddenSides>
+                  <forbiddenSides>EAST</forbiddenSides>
+                  <forbiddenSides>NORTH</forbiddenSides>
                   <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
                 </style>
               </borderedNodeMappings>
-              <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelExpression="feature:name_exec" iconPath="/my.generator.workflow.design/resources/programIcon.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" borderLineStyle="dash" showIcon="false" labelExpression="feature:name_exec" labelPosition="node" resizeKind="NSEW" width="10" height="4">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -55,7 +61,15 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom">
+          <subContainerMappings name="ForEach" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.ForEach">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" widthComputationExpression="40" heightComputationExpression="20" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -81,6 +95,18 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="commands">
                   <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="[' # Command description '/]"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ForEach">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.ForEach" referenceName="statements">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -89,7 +115,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Condition" referenceName="commands"/>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Condition" referenceName="commands">
+                <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="Program Options">
@@ -99,6 +127,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:CreateInstance" typeName="workflow.Program" referenceName="programs">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name_exec" valueExpression="[' run_command '/]"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
                 </firstModelOperations>
               </initialOperation>
             </tools>
@@ -120,5 +149,6 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="my.generator.workflow.design.services.WorkflowDiagramServices"/>
   </ownedViewpoints>
 </description:Group>

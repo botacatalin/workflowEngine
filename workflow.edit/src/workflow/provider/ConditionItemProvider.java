@@ -148,10 +148,8 @@ public class ConditionItemProvider extends StatementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Condition)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Condition_type") :
-			getString("_UI_Condition_type") + " " + label;
+		Condition condition = (Condition)object;
+		return getString("_UI_Condition_type") + " " + condition.getExec_order();
 	}
 	
 
@@ -202,6 +200,11 @@ public class ConditionItemProvider extends StatementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(WorkflowPackage.Literals.CONDITION__THEN_BRANCH,
+				 WorkflowFactory.eINSTANCE.createForEach()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(WorkflowPackage.Literals.CONDITION__ELSE_BRANCH,
 				 WorkflowFactory.eINSTANCE.createCondition()));
 
@@ -209,6 +212,11 @@ public class ConditionItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(WorkflowPackage.Literals.CONDITION__ELSE_BRANCH,
 				 WorkflowFactory.eINSTANCE.createSimpleCommand()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkflowPackage.Literals.CONDITION__ELSE_BRANCH,
+				 WorkflowFactory.eINSTANCE.createForEach()));
 	}
 
 	/**

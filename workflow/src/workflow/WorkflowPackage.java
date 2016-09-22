@@ -205,13 +205,22 @@ public interface WorkflowPackage extends EPackage {
 	int STATEMENT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Exec order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT__EXEC_ORDER = 0;
+
+	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_FEATURE_COUNT = 0;
+	int STATEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Statement</em>' class.
@@ -231,6 +240,15 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	int CONDITION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Exec order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__EXEC_ORDER = STATEMENT__EXEC_ORDER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -324,13 +342,22 @@ public interface WorkflowPackage extends EPackage {
 	int PROGRAM__DESCRIPTION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Exec order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__EXEC_ORDER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_FEATURE_COUNT = 3;
+	int PROGRAM_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Program</em>' class.
@@ -350,6 +377,15 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	int SIMPLE_COMMAND = 6;
+
+	/**
+	 * The feature id for the '<em><b>Exec order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_COMMAND__EXEC_ORDER = STATEMENT__EXEC_ORDER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -496,6 +532,71 @@ public interface WorkflowPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT_PARAMETER_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link workflow.impl.ForEachImpl <em>For Each</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see workflow.impl.ForEachImpl
+	 * @see workflow.impl.WorkflowPackageImpl#getForEach()
+	 * @generated
+	 */
+	int FOR_EACH = 9;
+
+	/**
+	 * The feature id for the '<em><b>Exec order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR_EACH__EXEC_ORDER = STATEMENT__EXEC_ORDER;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR_EACH__ELEMENT = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR_EACH__STATEMENTS = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR_EACH__SEQUENCE = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>For Each</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR_EACH_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>For Each</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR_EACH_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -692,6 +793,17 @@ public interface WorkflowPackage extends EPackage {
 	EAttribute getProgram_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link workflow.Program#getExec_order <em>Exec order</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exec order</em>'.
+	 * @see workflow.Program#getExec_order()
+	 * @see #getProgram()
+	 * @generated
+	 */
+	EAttribute getProgram_Exec_order();
+
+	/**
 	 * Returns the meta object for class '{@link workflow.Statement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -700,6 +812,17 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link workflow.Statement#getExec_order <em>Exec order</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exec order</em>'.
+	 * @see workflow.Statement#getExec_order()
+	 * @see #getStatement()
+	 * @generated
+	 */
+	EAttribute getStatement_Exec_order();
 
 	/**
 	 * Returns the meta object for class '{@link workflow.SimpleCommand <em>Simple Command</em>}'.
@@ -774,6 +897,49 @@ public interface WorkflowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOutputParameter_Link_to_inputparameter();
+
+	/**
+	 * Returns the meta object for class '{@link workflow.ForEach <em>For Each</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>For Each</em>'.
+	 * @see workflow.ForEach
+	 * @generated
+	 */
+	EClass getForEach();
+
+	/**
+	 * Returns the meta object for the attribute '{@link workflow.ForEach#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Element</em>'.
+	 * @see workflow.ForEach#getElement()
+	 * @see #getForEach()
+	 * @generated
+	 */
+	EAttribute getForEach_Element();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link workflow.ForEach#getStatements <em>Statements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Statements</em>'.
+	 * @see workflow.ForEach#getStatements()
+	 * @see #getForEach()
+	 * @generated
+	 */
+	EReference getForEach_Statements();
+
+	/**
+	 * Returns the meta object for the attribute '{@link workflow.ForEach#getSequence <em>Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sequence</em>'.
+	 * @see workflow.ForEach#getSequence()
+	 * @see #getForEach()
+	 * @generated
+	 */
+	EAttribute getForEach_Sequence();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -953,6 +1119,14 @@ public interface WorkflowPackage extends EPackage {
 		EAttribute PROGRAM__DESCRIPTION = eINSTANCE.getProgram_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Exec order</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROGRAM__EXEC_ORDER = eINSTANCE.getProgram_Exec_order();
+
+		/**
 		 * The meta object literal for the '{@link workflow.impl.StatementImpl <em>Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -961,6 +1135,14 @@ public interface WorkflowPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATEMENT = eINSTANCE.getStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Exec order</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATEMENT__EXEC_ORDER = eINSTANCE.getStatement_Exec_order();
 
 		/**
 		 * The meta object literal for the '{@link workflow.impl.SimpleCommandImpl <em>Simple Command</em>}' class.
@@ -1023,6 +1205,40 @@ public interface WorkflowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OUTPUT_PARAMETER__LINK_TO_INPUTPARAMETER = eINSTANCE.getOutputParameter_Link_to_inputparameter();
+
+		/**
+		 * The meta object literal for the '{@link workflow.impl.ForEachImpl <em>For Each</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see workflow.impl.ForEachImpl
+		 * @see workflow.impl.WorkflowPackageImpl#getForEach()
+		 * @generated
+		 */
+		EClass FOR_EACH = eINSTANCE.getForEach();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOR_EACH__ELEMENT = eINSTANCE.getForEach_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FOR_EACH__STATEMENTS = eINSTANCE.getForEach_Statements();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOR_EACH__SEQUENCE = eINSTANCE.getForEach_Sequence();
 
 	}
 

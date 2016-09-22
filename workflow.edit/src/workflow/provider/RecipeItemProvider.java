@@ -188,6 +188,11 @@ public class RecipeItemProvider
 			(createChildParameter
 				(WorkflowPackage.Literals.RECIPE__COMMANDS,
 				 WorkflowFactory.eINSTANCE.createSimpleCommand()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(WorkflowPackage.Literals.RECIPE__COMMANDS,
+				 WorkflowFactory.eINSTANCE.createForEach()));
 	}
 
 	/**

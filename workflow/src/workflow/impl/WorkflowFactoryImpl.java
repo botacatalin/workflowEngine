@@ -63,6 +63,7 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 			case WorkflowPackage.SIMPLE_COMMAND: return createSimpleCommand();
 			case WorkflowPackage.INPUT_PARAMETER: return createInputParameter();
 			case WorkflowPackage.OUTPUT_PARAMETER: return createOutputParameter();
+			case WorkflowPackage.FOR_EACH: return createForEach();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +137,16 @@ public class WorkflowFactoryImpl extends EFactoryImpl implements WorkflowFactory
 	public OutputParameter createOutputParameter() {
 		OutputParameterImpl outputParameter = new OutputParameterImpl();
 		return outputParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ForEach createForEach() {
+		ForEachImpl forEach = new ForEachImpl();
+		return forEach;
 	}
 
 	/**
