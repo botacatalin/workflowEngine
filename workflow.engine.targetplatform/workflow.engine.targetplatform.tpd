@@ -7,3 +7,7 @@ location "http://download.eclipse.org/modeling/m2t/xpand/updates/nightly/" {
 	org.eclipse.xtend.middleend.xpand
 	org.eclipse.xtend.middleend.xtend
 }
+
+location "http://download.eclipse.org/releases/neon" {
+	org.eclipse.egf.sdk.feature.group
+}

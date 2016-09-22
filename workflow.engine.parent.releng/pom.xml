@@ -98,6 +98,8 @@
 		<module>../workflow.edit</module>
 		<module>../workflow.editor</module>
 		<module>../workflow.engine.targetplatform</module>
+		
+		<module>../workflow.egf</module>
 	</modules>
 </project>
 

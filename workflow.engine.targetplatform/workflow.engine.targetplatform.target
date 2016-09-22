@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Workflow engine target file" sequenceNumber="1474460446">
+<target name="Workflow engine target file" sequenceNumber="1474548270">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.xtend.backend" version="2.2.0.v201605270513"/>
       <unit id="org.eclipse.xtend.middleend.xpand" version="2.2.0.v201605270513"/>
       <unit id="org.eclipse.xtend.middleend.xtend" version="2.2.0.v201605270513"/>
       <repository location="http://download.eclipse.org/modeling/m2t/xpand/updates/nightly/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.egf.sdk.feature.group" version="1.4.0.v20160516-1506"/>
+      <repository location="http://download.eclipse.org/releases/neon"/>
     </location>
   </locations>
   <environment>

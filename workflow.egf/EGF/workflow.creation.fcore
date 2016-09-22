@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ftask:Task xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ftask="http://www.eclipse.org/egf/1.0.0/ftask"
+    xmlns:types="http://www.eclipse.org/egf/1.0.0/types" xmi:id="_m6XjYICoEea-Q5dJI90J9w" description="Create workflow project"
+    name="workflow.project.creation" kind="java" implementation="general.WorkflowProjectCreation">
+  <contractContainer xmi:id="_MscMAICqEea-Q5dJI90J9w">
+    <contracts xmi:id="_M81_gICqEea-Q5dJI90J9w" description="Project name" name="projectName">
+      <type xmi:type="types:TypeString" xmi:id="_T5pZkICqEea-Q5dJI90J9w" value="NewWorkflowProject"/>
+    </contracts>
+  </contractContainer>
+</ftask:Task>

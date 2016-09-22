@@ -36,6 +36,18 @@
          id="org.eclipse.sirius.specifier"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.egf.producer"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.egf.producer.ui"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.egf.model.ftask"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.sdk"/>
    </requires>
@@ -63,6 +75,13 @@
 
    <plugin
          id="workflow.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="workflow.egf"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EGF
+Bundle-SymbolicName: workflow.egf;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.egf.model.ftask;visibility:=reexport,
+ org.eclipse.sirius.ui;bundle-version="4.0.0",
+ org.eclipse.sirius,
+ org.eclipse.ui;bundle-version="3.108.0"
+Export-Package: general
+Import-Package: workflow
