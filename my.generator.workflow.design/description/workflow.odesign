@@ -15,14 +15,14 @@
       <defaultLayer name="Default">
         <containerMappings name="Recipe" domainClass="workflow.Recipe">
           <subNodeMappings name="Condition" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.Condition">
-            <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:expression" resizeKind="NSEW">
+            <style xsi:type="style:LozengeNodeDescription" labelExpression="feature:expression" tooltipExpression="feature:exec_order" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subContainerMappings name="SimpleCommand" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.SimpleCommand">
-            <subNodeMappings name="Program" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.Program">
+          <subContainerMappings name="SimpleCommand" semanticCandidatesExpression="feature:eContents" domainClass="workflow.SimpleCommand">
+            <subNodeMappings name="Program" semanticCandidatesExpression="[self.programs/]" domainClass="workflow.Program">
               <borderedNodeMappings name="Input" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.InputParameter">
                 <style xsi:type="style:SquareDescription" labelExpression="" iconPath="/my.generator.workflow.design/resources/inputParameterIcon.png" labelPosition="node" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -52,7 +52,7 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash_dot" labelExpression="feature:description" iconPath="/my.generator.workflow.design/resources/simpleCommandIcon.png" roundedCorner="true">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash_dot" labelExpression="feature:description" iconPath="/my.generator.workflow.design/resources/simpleCommandIcon.png" tooltipExpression="feature:exec_order" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelFormat>italic</labelFormat>
@@ -61,8 +61,8 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="ForEach" semanticCandidatesExpression="feature:eAllContents" domainClass="workflow.ForEach">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+          <subContainerMappings name="ForEach" semanticCandidatesExpression="feature:eContents" domainClass="workflow.ForEach" reusedContainerMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='SimpleCommand']">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="20" arcHeight="20" borderSizeComputationExpression="1" showIcon="false" labelExpression="feature:sequence" tooltipExpression="feature:exec_order" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -93,19 +93,27 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="commands">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="[' # Command description '/]"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.oclIsTypeOf(Recipe)/]">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="commands">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="[' # Command description ' /]"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:If" conditionExpression="[container.oclIsTypeOf(ForEach)/]">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.SimpleCommand" referenceName="statements">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="[' # Command description ' /]"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ForEach">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="ForEachCommand" label="ForEach" containerMappings="//@ownedViewpoints[name='Workflow']/@ownedRepresentations[name='Workflow%20Engine%20Diagram']/@defaultLayer/@containerMappings[name='Recipe']/@subContainerMappings[name='ForEach']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.ForEach" referenceName="statements">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="workflow.ForEach" referenceName="commands">
                   <subModelOperations xsi:type="tool:SetValue" featureName="exec_order" valueExpression="service:getExecutionOrder()"/>
                 </subModelOperations>
               </firstModelOperations>
